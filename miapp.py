@@ -9,15 +9,16 @@ from PIL import Image
 import time
 import glob
 
-
-
 from gtts import gTTS
 from googletrans import Translator
 
+
+st.title("Traductor de voz")
+
 stt_button = Button(label=" COMENZAR ", width=200)
 
-st.subheader("¿Cómo te sientes hoy?")
-st.write("Apenas hundas sobre el botón, comienza a hablar sobre cómo te sientes:")
+st.subheader("Toca el botón y di en voz alta lo que quieras que traduzca")
+st.write("Apenas le des click, comienza a hablar:")
 
 stt_button.js_on_event("button_click", CustomJS(code="""
     var recognition = new webkitSpeechRecognition();
