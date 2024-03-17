@@ -11,6 +11,10 @@ import glob
 from gtts import gTTS
 from googletrans import Translator
 
+spoken_text = None
+
+
+
 st.title("El Escuchadero🦻")
 st.subheader("¿Cómo te sientes hoy?")
 
