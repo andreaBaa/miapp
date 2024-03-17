@@ -1,4 +1,29 @@
 
+#INICIO 
+from PIL import Image
+st.title("El Escuchadero🦻")
+st.subheader("¿Cómo te sientes hoy?")
+
+  modo = st.radio("Es una difícil decisión, lo sé.", ("Feliz", "Triste", "Enojado", "Preocupado", "Asustado" ))
+  if modo == "Feliz":
+    st.write("¡Que bien!😊")
+    image = Image.open("feliz.png")
+  if modo == "Triste":
+    st.write("Lo lamento mucho 😔.")
+    image2 = Image.open("triste.png")
+  if modo == "Enojado":
+    st.write("Lo lamento mucho 😔.")
+    image3 = Image.open("enojado.png")
+  if modo == "Preocupado":
+    st.write("Lo lamento mucho 😔.")
+    image3 = Image.open("preocupado.png")
+  if modo == "Asustado":
+    st.write("Lo lamento mucho 😔.")
+    image3 = Image.open("asustado.png")
+
+
+
+
 # AUDIO A TEXTO
 import os
 import streamlit as st
@@ -13,11 +38,10 @@ from gtts import gTTS
 from googletrans import Translator
 
 
-st.title("El Escuchadero")
 
 stt_button = Button(label=" COMENZAR ", width=200)
 
-st.subheader("Cuéntame, ¿cómo te sientes hoy?")
+st.subheader("Cuéntame más sobre cómo te sientes")
 st.write("Apenas hundas sobre el botón, comienza a hablar:")
 
 stt_button.js_on_event("button_click", CustomJS(code="""
@@ -170,3 +194,8 @@ if result:
                     print("Deleted ", f)
 
     remove_files(7)
+
+
+
+#EMOCIONES
+
