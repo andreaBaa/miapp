@@ -99,6 +99,27 @@ if spoken_text:
         st.write( 'Es un sentimiento Neutral 😐')
 
 
+#RECOMENDACIÓN
+st.subheader("La recomendación que te doy es: ")
+if modo == "Feliz":
+    image6 = Image.open("feliz.jpg")
+    st.image(image6)
+if modo == "Triste":
+    image7 = Image.open("triste.jpg")
+    st.image(image7)
+if modo == "Enojado":
+    image8 = Image.open("enojo.jpg")
+    st.image(image8)
+if modo == "Preocupado":
+    image9 = Image.open("preocupado.jpg")
+    st.image(image9)
+if modo == "Asustado":
+    image10 = Image.open("miedo.jpg")
+    st.image(image10)
+
+
+
+
 
 
 
