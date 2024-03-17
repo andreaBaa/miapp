@@ -14,6 +14,22 @@ from googletrans import Translator
 spoken_text = None
 
 
+# Cargar las imágenes
+image_feliz = Image.open("feliz.png")
+image_triste = Image.open("triste.png")
+image_enojado = Image.open("enojado.png")
+image_preocupado = Image.open("preocupado.png")
+image_asustado = Image.open("asustado.png")
+
+# Cambiar el tamaño de las imágenes
+width, height = 200, 200  # Tamaño deseado de las imágenes
+
+image_feliz_resized = image_feliz.resize((width, height))
+image_triste_resized = image_triste.resize((width, height))
+image_enojado_resized = image_enojado.resize((width, height))
+image_preocupado_resized = image_preocupado.resize((width, height))
+image_asustado_resized = image_asustado.resize((width, height))
+
 
 st.title("El Escuchadero🦻")
 st.subheader("¿Cómo te sientes hoy?")
@@ -23,24 +39,19 @@ width, height = 200, 200
 modo = st.radio("Es una difícil decisión, lo sé.", ("Feliz", "Triste", "Enojado", "Preocupado", "Asustado"))
 if modo == "Feliz":
     st.write("¡Que bien!😊")
-    image = Image.open("feliz.png")
-    st.image(image, width, heigth)
+    st.image(image_feliz_resized)
 if modo == "Triste":
     st.write("Lo lamento mucho 😔.")
-    image2 = Image.open("triste.png")
-    st.image(image2)
+    st.image(image_triste_resized)
 if modo == "Enojado":
     st.write("Lo lamento mucho 😔.")
-    image3 = Image.open("enojado.png")
-    st.image(image3)
+    st.image(image_enojado_resized)
 if modo == "Preocupado":
     st.write("Lo lamento mucho 😔.")
-    image4 = Image.open("preocupado.png")
-    st.image(image4)
+    st.image(image_preocupado_resized)
 if modo == "Asustado":
     st.write("Lo lamento mucho 😔.")
-    image5 = Image.open("asustado.png")
-    st.image(image5)
+    st.image(image_asustado_resized)
 
 # AUDIO A TEXTO
 stt_button = Button(label=" COMENZAR ", width=200)
