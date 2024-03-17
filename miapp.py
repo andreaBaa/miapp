@@ -18,11 +18,13 @@ spoken_text = None
 st.title("El Escuchadero🦻")
 st.subheader("¿Cómo te sientes hoy?")
 
+width, height = 200, 200
+
 modo = st.radio("Es una difícil decisión, lo sé.", ("Feliz", "Triste", "Enojado", "Preocupado", "Asustado"))
 if modo == "Feliz":
     st.write("¡Que bien!😊")
     image = Image.open("feliz.png")
-    st.image(image)
+    st.image(image, width, heigth)
 if modo == "Triste":
     st.write("Lo lamento mucho 😔.")
     image2 = Image.open("triste.png")
