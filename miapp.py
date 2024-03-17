@@ -1,12 +1,13 @@
-#INICIO 
+
 import os
-import time
-import glob
-from PIL import Image
 import streamlit as st
 from bokeh.models.widgets import Button
 from bokeh.models import CustomJS
 from streamlit_bokeh_events import streamlit_bokeh_events
+from PIL import Image
+import time
+import glob
+
 from gtts import gTTS
 from googletrans import Translator
 
@@ -19,16 +20,16 @@ if modo == "Feliz":
     image = Image.open("feliz.png")
 if modo == "Triste":
     st.write("Lo lamento mucho 😔.")
-    image = Image.open("triste.png")
+    image2 = Image.open("triste.png")
 if modo == "Enojado":
     st.write("Lo lamento mucho 😔.")
-    image = Image.open("enojado.png")
+    image3 = Image.open("enojado.png")
 if modo == "Preocupado":
     st.write("Lo lamento mucho 😔.")
-    image = Image.open("preocupado.png")
+    image4 = Image.open("preocupado.png")
 if modo == "Asustado":
     st.write("Lo lamento mucho 😔.")
-    image = Image.open("asustado.png")
+    image5 = Image.open("asustado.png")
 
 # AUDIO A TEXTO
 stt_button = Button(label=" COMENZAR ", width=200)
@@ -65,129 +66,9 @@ result = streamlit_bokeh_events(
 
 if result:
     if "GET_TEXT" in result:
-        st.write(result.get("GET_TEXT"))
-    try:
-        os.mkdir("temp")
-    except:
-        pass
-    st.header("Ayúdame a configurar los detalles")
-    translator = Translator()
-    
-    text = str(result.get("GET_TEXT"))
-    in_lang = st.selectbox(
-        "Selecciona el lenguaje de Entrada",
-        ("Inglés", "Español", "Bengali", "Coreano", "Mandarín", "Japonés", "Alemán", "Francés"),
-    )
-    if in_lang == "Inglés":
-        input_language = "en"
-    elif in_lang == "Español":
-        input_language = "es"
-    elif in_lang == "Bengali":
-        input_language = "bn"
-    elif in_lang == "Coreano":
-        input_language = "ko"
-    elif in_lang == "Mandarín":
-        input_language = "zh-cn"
-    elif in_lang == "Japonés":
-        input_language = "ja"
-    elif in_lang == "Alemán":
-        output_language = "de"
-    elif in_lang == "Francés":
-        output_language = "fr"
-    
-    out_lang = st.selectbox(
-        "Selecciona el lenguaje de salida",
-        ("Inglés", "Español", "Bengali", "Coreano", "Mandarín", "Japonés", "Alemán", "Francés"),
-    )
-    if out_lang == "Inglés":
-        output_language = "en"
-    elif out_lang == "Español":
-        output_language = "es"
-    elif out_lang == "Bengali":
-        output_language = "bn"
-    elif out_lang == "Coreano":
-        output_language = "ko"
-    elif out_lang == "Mandarín":
-        output_language = "zh-cn"
-    elif out_lang == "Japonés":
-        output_language = "ja"
-    elif out_lang == "Alemán":
-        output_language = "de"
-    elif out_lang == "Francés":
-        output_language = "fr"
-    
-    english_accent = st.selectbox(
-        "Selecciona el acento",
-        (
-            "Defecto",
-            "Español",
-            "Reino Unido",
-            "Estados Unidos",
-            "Canada",
-            "Australia",
-            "Irlanda",
-            "Sudáfrica",
-        ),
-    )
-    
-    if english_accent == "Defecto":
-        tld = "com"
-    elif english_accent == "Español":
-        tld = "com.mx"
-    elif english_accent == "Reino Unido":
-        tld = "co.uk"
-    elif english_accent == "Estados Unidos":
-        tld = "com"
-    elif english_accent == "Canada":
-        tld = "ca"
-    elif english_accent == "Australia":
-        tld = "com.au"
-    elif english_accent == "Irlanda":
-        tld = "ie"
-    elif english_accent == "Sudáfrica":
-        tld = "co.za"
-        
-    
-    
-    def text_to_speech(input_language, output_language, text, tld):
-        translation = translator.translate(text, src=input_language, dest=output_language)
-        trans_text = translation.text
-        tts = gTTS(trans_text, lang=output_language, tld=tld, slow=False)
-        try:
-            my_file_name = text[0:20]
-        except:
-            my_file_name = "audio"
-        tts.save(f"temp/{my_file_name}.mp3")
-        return my_file_name, trans_text
-    
-    
-    display_output_text = st.checkbox("Mostrar el texto")
-    
-    if st.button("CONVERTIR A AUDIO"):
-        result, output_text = text_to_speech(input_language, output_language, text, tld)
-        audio_file = open(f"temp/{result}.mp3", "rb")
-        audio_bytes = audio_file.read()
-        st.markdown(f"## Tu audio traducido:")
-        st.audio(audio_bytes, format="audio/mp3", start_time=0)
-    
-        if display_output_text:
-            st.markdown(f"## Tu texto traducido:")
-            st.write(f" {output_text}")
-    
-    
-    def remove_files(n):
-        mp3_files = glob.glob("temp/*mp3")
-        if len(mp3_files) != 0:
-            now = time.time()
-            n_days = n * 86400
-            for f in mp3_files:
-                if os.stat(f).st_mtime < now - n_days:
-                    os.remove(f)
-                    print("Deleted ", f)
+        spoken_text = result.get("GET_TEXT")
+        st.write(f"Texto reconocido: {spoken_text}")
 
-    remove_files(7)
-
-#EMOCION
 
 
 
