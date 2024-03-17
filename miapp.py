@@ -76,10 +76,6 @@ result = streamlit_bokeh_events(
     override_height=75,
     debounce_time=0)
 
-if result:
-    if "GET_TEXT" in result:
-        spoken_text = result.get("GET_TEXT")
-        st.write(f"Esto es lo que me dijiste que sientes: {spoken_text}")
 
 
 
@@ -88,6 +84,16 @@ from textblob import TextBlob
 import streamlit as st
 
 st.subheader("**Este es el sentimiento que percibo de tus palabras:**")
+st.write("(Apenas me lo cuentes mediante el botón, lo analizaré.")
+
+if result:
+    if "GET_TEXT" in result:
+        spoken_text = result.get("GET_TEXT")
+        st.write(f"Esto es lo que me dijiste que sientes: {spoken_text}")
+
+st.write("")
+st.write("Esto es lo que percibo:")
+
 
 if spoken_text:
     blob = TextBlob(spoken_text)
