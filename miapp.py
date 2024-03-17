@@ -1,5 +1,19 @@
 
 # AUDIO A TEXTO
+import os
+import streamlit as st
+from bokeh.models.widgets import Button
+from bokeh.models import CustomJS
+from streamlit_bokeh_events import streamlit_bokeh_events
+from PIL import Image
+import time
+import glob
+
+
+
+from gtts import gTTS
+from googletrans import Translator
+
 stt_button = Button(label=" COMENZAR ", width=200)
 
 st.subheader("¿Cómo te sientes hoy?")
