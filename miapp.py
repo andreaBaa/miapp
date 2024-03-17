@@ -4,7 +4,7 @@ from PIL import Image
 st.title("El Escuchadero🦻")
 st.subheader("¿Cómo te sientes hoy?")
 
-  modo = st.radio("Es una difícil decisión, lo sé.", ("Feliz", "Triste", "Enojado", "Preocupado", "Asustado" ))
+modo = st.radio("Es una difícil decisión, lo sé.", ("Feliz", "Triste", "Enojado", "Preocupado", "Asustado"))
   if modo == "Feliz":
     st.write("¡Que bien!😊")
     image = Image.open("feliz.png")
