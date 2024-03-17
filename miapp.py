@@ -79,7 +79,7 @@ result = streamlit_bokeh_events(
 if result:
     if "GET_TEXT" in result:
         spoken_text = result.get("GET_TEXT")
-        st.write("Esto es lo que me dijiste que sientes: {spoken_text}")
+        st.write("Esto es lo que me dijiste que sientes:", {spoken_text})
 
 
 
