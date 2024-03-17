@@ -84,7 +84,7 @@ if result:
 from textblob import TextBlob
 import streamlit as st
 
-st.subheader("Este es el sentimiento que percibo de tus palabras:")
+st.subheader("**Este es el sentimiento que percibo de tus palabras:**")
 
 if spoken_text:
     blob = TextBlob(spoken_text)
