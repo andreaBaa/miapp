@@ -5,10 +5,10 @@ st.title("El Escuchadero🦻")
 st.subheader("¿Cómo te sientes hoy?")
 
 modo = st.radio("Es una difícil decisión, lo sé.", ("Feliz", "Triste", "Enojado", "Preocupado", "Asustado"))
-  if modo == "Feliz":
+if modo == "Feliz":
     st.write("¡Que bien!😊")
     image = Image.open("feliz.png")
-  if modo == "Triste":
+if modo == "Triste":
     st.write("Lo lamento mucho 😔.")
     image2 = Image.open("triste.png")
   if modo == "Enojado":
