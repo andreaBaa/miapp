@@ -11,13 +11,13 @@ if modo == "Feliz":
 if modo == "Triste":
     st.write("Lo lamento mucho 😔.")
     image2 = Image.open("triste.png")
-  if modo == "Enojado":
+if modo == "Enojado":
     st.write("Lo lamento mucho 😔.")
     image3 = Image.open("enojado.png")
-  if modo == "Preocupado":
+if modo == "Preocupado":
     st.write("Lo lamento mucho 😔.")
     image3 = Image.open("preocupado.png")
-  if modo == "Asustado":
+if modo == "Asustado":
     st.write("Lo lamento mucho 😔.")
     image3 = Image.open("asustado.png")
 
