@@ -102,6 +102,9 @@ if spoken_text:
         st.write( 'Es un sentimiento Neutral 😐')
 
 
+st.write("")
+st.write("")
+
 #RECOMENDACIÓN
 st.subheader("La recomendación que te doy es: ")
 if modo == "Feliz":
