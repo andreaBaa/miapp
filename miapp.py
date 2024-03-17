@@ -85,8 +85,7 @@ from googletrans import Translator
 
 st.subheader("Este es el sentimiento que que percibo de tus palabras:")
 
-
-    if spoken_text:
+if spoken_text:
         st.write('Polarity: ', round(blob.sentiment.polarity,2))
         st.write('Subjectivity: ', round(blob.sentiment.subjectivity,2))
         x=round(blob.sentiment.polarity,2)
