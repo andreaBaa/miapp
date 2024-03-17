@@ -86,10 +86,9 @@ from googletrans import Translator
 st.subheader("Este es el sentimiento que que percibo de tus palabras:")
 
 
-text = spoken_text
-if text:
-        translation = translator.translate(text, src="es", dest="en")
-        trans_text = translation.text
+if spoken_text:
+        translation = translator.translate(spoken_text, src="es", dest="en")
+        trans_text = translation.spoken_text
         blob = TextBlob(trans_text)
         st.write('Polarity: ', round(blob.sentiment.polarity,2))
         st.write('Subjectivity: ', round(blob.sentiment.subjectivity,2))
