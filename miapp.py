@@ -22,7 +22,7 @@ modo = st.radio("Es una difícil decisión, lo sé.", ("Feliz", "Triste", "Enoja
 if modo == "Feliz":
     st.write("¡Que bien!😊")
     image = Image.open("feliz.png")
-    st.image(image, width= 300, heigth= 300)
+    st.image(image, width= 300, height= 300)
 if modo == "Triste":
     st.write("Lo lamento mucho 😔.")
     image2 = Image.open("triste.png")
